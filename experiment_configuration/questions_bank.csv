@@ -1,13 +1,44 @@
 block_name,allow_block_permutation,allow_question_permutation,question_name,question_text,is_text,is_likert,is_grouped_likert,is_multi_choice,is_label,options
-Demo_block_1,0,0,Demo_q1,<strong>Example block 1.</strong> These are single-item Likert questions that can measure baseline attitudes or post-task outcomes.,0,0,0,0,1,
-Demo_block_1,0,0,Demo_q2,<strong>Example single-item question.</strong> Replace this text with one attitude or outcome item that matters in your study.,0,1,0,0,0,Not at all|Very much
-Demo_block_1,0,0,Demo_q3,"This item shows that quoted text such as ""important instruction"" can appear in question wording.",0,1,0,0,0,Strongly disagree|Strongly agree
-Demo_block_2,1,1,Demo_q4,<strong>Example block 2.</strong> These are grouped Likert questions that share one response scale across several related statements.,0,0,0,0,1,
-Demo_block_2,1,1,Demo_q5,This grouped item shows how one statement can appear inside a shared battery of related measures.,0,0,1,0,0,Strongly disagree|Strongly agree
-Demo_block_2,1,1,Demo_q6,Researchers often use grouped Likert items for trust usability workload or other multi-item constructs.,0,0,1,0,0,Strongly disagree|Strongly agree
-Demo_block_3,1,1,Demo_q7,<strong>Example block 3.</strong> These are open-ended text questions for comments explanations or qualitative reflections.,0,0,0,0,1,
-Demo_block_3,1,1,Demo_q8,Briefly describe how you might adapt this baseline template for your own study.,1,0,0,0,0,
-Demo_block_3,1,1,Demo_q9,Which study materials would you replace first: page text questions task instructions or hidden prompts?,1,0,0,0,0,
-Demo_block_4,1,1,Demo_q11,<strong>Example block 4.</strong> These are single-select multiple-choice questions with one answer chosen from a fixed set of options.,0,0,0,0,1,
-Demo_block_4,1,1,Demo_q12,Which TRI-CA configuration area would you most likely edit first?,0,0,0,1,0,Option 1|Option 2|Option 3
-Demo_block_4,1,1,Demo_q13,Which response format would be most useful in your study?,0,0,0,1,0,Single Likert item|Grouped Likert block|Open-ended text|A mix of several formats
+block_confidence,0,1,q_confidence_0,"Thinking about the interview questions you just answered, on a scale of 1 to 7 (1 representing strongly disagree and 7 representing strongly agree), please rate how much you agree with the following statements:",0,0,0,0,1,
+block_confidence,0,1,q_confidence_1,"I am confident I can give a clear, well-structured answer to a behavioral interview question.",0,0,1,0,0,Strongly disagree|Strongly agree
+block_confidence,0,1,q_confidence_2,"I can think of a relevant example from my experience, even when an interview question is unexpected.",0,0,1,0,0,Strongly disagree|Strongly agree
+block_confidence,0,1,q_confidence_3,I can clearly explain the specific actions I personally took in a situation.,0,0,1,0,0,Strongly disagree|Strongly agree
+block_confidence,0,1,q_confidence_4,I can clearly explain the results or impact of my actions in an interview answer.,0,0,1,0,0,Strongly disagree|Strongly agree
+block_confidence,0,1,q_confidence_5,I can stay calm during an interview because I can rely on my preparation.,0,0,1,0,0,Strongly disagree|Strongly agree
+block_confidence,0,1,q_confidence_6,"If an interviewer challenges my answer, I can find a way to respond effectively.",0,0,1,0,0,Strongly disagree|Strongly agree
+block_confidence,0,1,q_confidence_7,I can speak fluently and at an appropriate pace during an interview.,0,0,1,0,0,Strongly disagree|Strongly agree
+block_confidence,0,1,q_confidence_8,I am confident I would perform well in a real job interview.,0,0,1,0,0,Strongly disagree|Strongly agree
+block_confidence_selfperf,0,0,q_confidence_selfperf,"Overall, how would you rate your performance on the interview questions you just answered?",0,0,0,1,0,Very poor|Poor|Fair|Good|Very good|Excellent
+block_purpose,0,0,q_purpose_1,"In a sentence or two, what do you think this study was about?",1,0,0,0,0,
+block_personality,1,1,q_personality_0,"Thinking about your interaction with the AI interviewer, on a scale of 1 to 7 (1 representing strongly disagree and 7 representing strongly agree), please rate how much you agree with the following statements:",0,0,0,0,1,
+block_personality,1,1,q_personality_1,The AI interviewer felt warm.,0,0,1,0,0,Strongly disagree|Strongly agree
+block_personality,1,1,q_personality_2,The AI interviewer felt supportive.,0,0,1,0,0,Strongly disagree|Strongly agree
+block_personality,1,1,q_personality_3,The AI interviewer felt friendly.,0,0,1,0,0,Strongly disagree|Strongly agree
+block_personality,1,1,q_personality_4,The AI interviewer felt cold or distant.,0,0,1,0,0,Strongly disagree|Strongly agree
+block_personality,1,1,q_personality_5,The AI interviewer felt critical or harsh.,0,0,1,0,0,Strongly disagree|Strongly agree
+block_personality,1,1,q_personality_6,The AI interviewer felt neutral in tone.,0,0,1,0,0,Strongly disagree|Strongly agree
+block_personality,1,1,q_personality_7,The AI interviewer seemed sarcastic.,0,0,1,0,0,Strongly disagree|Strongly agree
+block_personality,1,1,q_personality_8,The AI interviewer's compliments felt backhanded or insincere.,0,0,1,0,0,Strongly disagree|Strongly agree
+block_personality,1,1,q_personality_9,The AI interviewer's questions were clear.,0,0,1,0,0,Strongly disagree|Strongly agree
+block_personality,1,1,q_personality_10,The AI interviewer responded at a good pace.,0,0,1,0,0,Strongly disagree|Strongly agree
+block_experience,1,1,q_experience_0,"Thinking about the practice session, on a scale of 1 to 7 (1 representing strongly disagree and 7 representing strongly agree), please rate how much you agree with the following statements:",0,0,0,0,1,
+block_experience,1,1,q_experience_1,The feedback I received from the AI interviewer was useful.,0,0,1,0,0,Strongly disagree|Strongly agree
+block_experience,1,1,q_experience_2,The feedback I received from the AI interviewer was accurate.,0,0,1,0,0,Strongly disagree|Strongly agree
+block_experience,1,1,q_experience_3,The interview felt similar to a real job interview.,0,0,1,0,0,Strongly disagree|Strongly agree
+block_experience,1,1,q_experience_4,I would use this AI interviewer again to practice.,0,0,1,0,0,Strongly disagree|Strongly agree
+block_experience_open,0,0,q_experience_open,How did the AI interviewer's feedback affect how you answered the later questions? Please elaborate,1,0,0,0,0,
+block_ai,1,1,q_ai_0,"On a scale of 1 to 7 (1 representing strongly disagree and 7 representing strongly agree), please rate how much you agree with the following statements:",0,0,0,0,1,
+block_ai,1,1,q_ai_1,"Overall, I have a positive view of artificial intelligence.",0,0,1,0,0,Strongly disagree|Strongly agree
+block_ai,1,1,q_ai_2,I trust feedback provided by AI tools.,0,0,1,0,0,Strongly disagree|Strongly agree
+block_ai,1,1,q_ai_3,I find AI tools useful for preparing for tasks like interviews.,0,0,1,0,0,Strongly disagree|Strongly agree
+block_demographic,0,1,q_demographic_0,Please answer the following demographic questions,0,0,0,0,1,
+block_demographic,0,1,q_demographic_1,What is your gender?,0,0,0,1,0,Woman|Man|Non-binary|Prefer to self-describe|Prefer not to say
+block_demographic,0,1,q_demographic_2,What is your age?,0,0,0,1,0,18-20|21-23|24-26|27-30|Over 30
+block_demographic,0,1,q_demographic_3,What best describes your current status?,0,0,0,1,0,First-year undergraduate|Second-year undergraduate|Third-year undergraduate|Fourth-year undergraduate or higher|Graduate student|Employed full-time|Other
+block_demographic,0,1,q_demographic_4,What is your primary field of study or work?,0,0,0,1,0,Business or management|Computer science or information systems|Engineering|Natural sciences or math|Social sciences or humanities|Arts or design|Other
+block_demographic,0,1,q_demographic_5,Is English your first language?,0,0,0,1,0,Yes|No|Prefer not to say
+block_demographic,0,1,q_demographic_6,How many job or internship interviews have you completed in the past two years?,0,0,0,1,0,0|1-2|3-5|6-10|More than 10
+block_demographic,0,1,q_demographic_7,"How familiar are you with the STAR method (Situation, Task, Action, Result) for answering interview questions?",0,0,0,1,0,I have never heard of it|I have heard of it but never used it|I have used it a few times|I use it regularly
+block_demographic,0,1,q_demographic_8,"How much experience do you have with AI agents (such as ChatGPT, Claude, Gemini, etc.)?",0,0,0,1,0,I use them daily|I use them weekly|I use them monthly|I have some experience with AI agents but I almost never use them|I have never used an AI agent
+block_demographic,0,1,q_demographic_9,"Before today, how often had you used an AI tool to practice for interviews?",0,0,0,1,0,Never|Once or twice|Several times|Regularly
+block_comments,0,0,q_comments_1,Do you wish to add anything?,1,0,0,0,0,
