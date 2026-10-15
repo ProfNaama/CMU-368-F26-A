@@ -1,15 +1,16 @@
 page,title,header,body1
 chat,TRI-CA,Chat with an AI agent,
-consent,TRI-CA,Example Consent Information,"<p>
-  This page shows where your study's consent language appears in the baseline TRI-CA
-  template. For a real deployment, replace this example text in
-  <code>experiment_desc.csv</code> with your approved consent summary and any
-  study-specific details.
+consent,TRI-CA,Consent Information,"<p>
+  You are invited to participate in a research study evaluating an AI-assisted behavioral interview tool. Your participation will involve answering interview questions with an AI coach and completing brief surveys about your experience. The entire session takes approximately 15&ndash;20 minutes.
 </p>
 <p>
-  The consent questions and submit button below come from the page template. If you
-  want to change their wording or layout, edit the consent page in the application
-  code.
+  Your participation is completely voluntary. You may stop or skip any question at any time without penalty. All responses collected are confidential and used solely for research purposes.
+</p>
+<p>
+  Your chat messages and survey answers will be recorded. We do not collect your name, so please do not include names or other identifying details in your answers.
+</p>
+<p>
+  Interview practice, including receiving feedback on your answers, can be mildly stressful for some people. If you feel uncomfortable at any point, you may stop the session by closing this window.
 </p>
 "
 pre_questionnaire,TRI-CA,Please read the following instructions,
