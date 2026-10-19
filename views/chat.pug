@@ -7,9 +7,11 @@ block content
     div(id="conversation", class="conversation")
     form(id="chatForm")
         label(for="message") User Text
-        input(type="text" class="form-text-input" id="message" placeholder="Type your message here" required)
-        input(type="submit" value="Send")
-    
+        textarea(class="form-text-input" id="message" rows="3" placeholder="Type your message here, or click Speak to dictate it" required)
+        button(type="button" id="micButton" style="display:none" aria-pressed="false") Speak
+        input(type="submit" id="sendButton" value="Send")
+        div(id="voiceStatus" style="font-size: 0.9em; color: #555; min-height: 1.3em" aria-live="polite")
+
     br
 
     form(id="chatEndedForm" method='POST' action='/submit_user_response')
@@ -66,7 +68,78 @@ block content
             updateConversationScroll();
         }
     
+        // Voice input: browser speech recognition fills the message box; the participant reviews and sends it.
+        function setupVoiceInput(){
+            const SpeechRecognitionImpl = window.SpeechRecognition || window.webkitSpeechRecognition;
+            const mic = document.getElementById('micButton');
+            const sendButton = document.getElementById('sendButton');
+            const status = document.getElementById('voiceStatus');
+            const box = document.getElementById('message');
+
+            if (!SpeechRecognitionImpl) {
+                mic.style.display = 'none';
+                status.textContent = "Voice input is not available in this browser. Please type your answer.";
+                return;
+            }
+            mic.style.display = '';
+            status.textContent = "";
+
+            let recognition = null;
+            let listening = false;
+            let baseText = '';
+            let finalText = '';
+
+            function setListening(on){
+                listening = on;
+                mic.textContent = on ? 'Stop' : 'Speak';
+                mic.setAttribute('aria-pressed', String(on));
+                sendButton.disabled = on;
+                status.textContent = on ? "Listening... speak now, then click Stop and check the text before sending." : "";
+            }
+
+            function start(){
+                recognition = new SpeechRecognitionImpl();
+                recognition.lang = 'en-US';
+                recognition.continuous = true;
+                recognition.interimResults = true;
+                baseText = box.value ? box.value.trimEnd() + ' ' : '';
+                finalText = '';
+                recognition.onresult = function(event){
+                    let interim = '';
+                    for (let i = event.resultIndex; i < event.results.length; i++) {
+                        const result = event.results[i];
+                        if (result.isFinal) { finalText += result[0].transcript; } else { interim += result[0].transcript; }
+                    }
+                    box.value = baseText + finalText + interim;
+                };
+                recognition.onerror = function(event){
+                    setListening(false);
+                    status.textContent = event.error === 'not-allowed'
+                        ? "Microphone access was blocked. You can still type your answer."
+                        : "Voice input stopped (" + event.error + "). You can still type your answer.";
+                };
+                recognition.onend = function(){ if (listening) { setListening(false); } };
+                recognition.start();
+                setListening(true);
+            }
+
+            function stop(){
+                if (recognition) { recognition.stop(); }
+                setListening(false);
+            }
+
+            mic.onclick = function(){ if (listening) { stop(); } else { start(); } };
+
+            box.onkeydown = function(e){
+                if (e.key === 'Enter' && !e.shiftKey && !e.isComposing) {
+                    e.preventDefault();
+                    if (!listening) { document.getElementById('chatForm').requestSubmit(); }
+                }
+            };
+        }
+
         $(document).ready(function(){
+            setupVoiceInput();
             addAgentText("Hi! Are you ready to start?");
             $('#chatForm').on('submit', function(e){
                 e.preventDefault();
