@@ -5,12 +5,23 @@ block content
     div(class='task_description')!=task_description
 
     div(id="conversation", class="conversation")
+    style.
+        @keyframes recPulse { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
+        #recordingPanel .recIcon { animation: recPulse 1.2s infinite; vertical-align: middle; margin-right: 8px; }
+
     form(id="chatForm")
         label(for="message") User Text
-        textarea(class="form-text-input" id="message" rows="3" placeholder="Type your message here, or click Speak to dictate it" required)
+        div(id="recordingPanel" role="status" style="display: none; width: 0; min-width: 100%; box-sizing: border-box; border: 2px solid #d32f2f; border-radius: 6px; background-color: #fdecea; padding: 12px 14px")
+            svg(class="recIcon" width="28" height="28" viewBox="0 0 24 24" aria-hidden="true")
+                path(fill="#d32f2f" d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5.3-3c0 3-2.54 5.1-5.3 5.1S6.7 14 6.7 11H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c3.28-.48 6-3.3 6-6.72h-1.7z")
+            span(id="recordingText" style="font-weight: 600; color: #b71c1c") Recording... speak naturally, then click Stop when you are finished.
+        textarea(class="form-text-input" id="message" rows="6" style="width: 100%; box-sizing: border-box" placeholder="Type your message here, or click Speak to record it" required)
         button(type="button" id="micButton" style="display:none" aria-pressed="false") Speak
         input(type="submit" id="sendButton" value="Send")
         div(id="voiceStatus" style="font-size: 0.9em; color: #555; min-height: 1.3em" aria-live="polite")
+        div(id="reviewNote" style="display: none; width: 0; min-width: 100%; box-sizing: border-box; background-color: #fff8e1; border-left: 4px solid #f9a825; padding: 12px 14px; border-radius: 4px; font-size: 0.95em")
+            strong Please review your transcript.
+            |  Fix any mistakes made by the speech recognition (wrong or missing words), but keep your original wording and meaning. Do not rewrite or improve your answer.
 
     br
 
@@ -68,13 +79,18 @@ block content
             updateConversationScroll();
         }
     
-        // Voice input: browser speech recognition fills the message box; the participant reviews and sends it.
+        // Voice input: the participant records without seeing live text, then reviews and corrects the transcript before sending.
         function setupVoiceInput(){
+            const RECORDING_PROMPT = "Recording... speak naturally, then click Stop when you are finished.";
+            const FINISH_TIMEOUT_MS = 2000;
             const SpeechRecognitionImpl = window.SpeechRecognition || window.webkitSpeechRecognition;
             const mic = document.getElementById('micButton');
             const sendButton = document.getElementById('sendButton');
             const status = document.getElementById('voiceStatus');
             const box = document.getElementById('message');
+            const panel = document.getElementById('recordingPanel');
+            const recordingText = document.getElementById('recordingText');
+            const reviewNote = document.getElementById('reviewNote');
 
             if (!SpeechRecognitionImpl) {
                 mic.style.display = 'none';
@@ -83,18 +99,53 @@ block content
             }
             mic.style.display = '';
             status.textContent = "";
+            document.getElementById('chatForm').addEventListener('submit', function(){ reviewNote.style.display = 'none'; });
 
             let recognition = null;
             let listening = false;
+            let finishing = false;
+            let finishTimer = null;
             let baseText = '';
             let finalText = '';
+            let pendingText = '';
 
-            function setListening(on){
-                listening = on;
+            // The engine returns no punctuation, so treat each finished chunk (a pause) as a sentence.
+            function formatSegment(text){
+                let s = text.trim().replace(/\bi\b/g, 'I');
+                if (!s) { return ''; }
+                s = s.charAt(0).toUpperCase() + s.slice(1);
+                return /[.?!,;:]$/.test(s) ? s : s + '.';
+            }
+
+            function showRecording(on){
+                panel.style.display = on ? '' : 'none';
+                box.style.display = on ? 'none' : '';
                 mic.textContent = on ? 'Stop' : 'Speak';
                 mic.setAttribute('aria-pressed', String(on));
                 sendButton.disabled = on;
-                status.textContent = on ? "Listening... speak now, then click Stop and check the text before sending." : "";
+                if (on) { reviewNote.style.display = 'none'; }
+            }
+
+            function finish(){
+                if (!(listening || finishing)) { return; }
+                clearTimeout(finishTimer);
+                const leftover = formatSegment(pendingText);
+                if (leftover) { finalText += (finalText ? ' ' : '') + leftover; }
+                pendingText = '';
+                listening = false;
+                finishing = false;
+                mic.disabled = false;
+                recordingText.textContent = RECORDING_PROMPT;
+                showRecording(false);
+                if (finalText) {
+                    box.value = baseText + finalText;
+                    reviewNote.style.display = '';
+                    status.textContent = "";
+                    box.focus();
+                } else {
+                    box.value = baseText;
+                    status.textContent = "We did not catch anything. Please try again or type your answer.";
+                }
             }
 
             function start(){
@@ -104,36 +155,52 @@ block content
                 recognition.interimResults = true;
                 baseText = box.value ? box.value.trimEnd() + ' ' : '';
                 finalText = '';
+                pendingText = '';
                 recognition.onresult = function(event){
                     let interim = '';
                     for (let i = event.resultIndex; i < event.results.length; i++) {
                         const result = event.results[i];
-                        if (result.isFinal) { finalText += result[0].transcript; } else { interim += result[0].transcript; }
+                        if (result.isFinal) {
+                            const segment = formatSegment(result[0].transcript);
+                            if (segment) { finalText += (finalText ? ' ' : '') + segment; }
+                        } else {
+                            interim += result[0].transcript;
+                        }
                     }
-                    box.value = baseText + finalText + interim;
+                    pendingText = interim;
                 };
                 recognition.onerror = function(event){
-                    setListening(false);
-                    status.textContent = event.error === 'not-allowed'
+                    const message = event.error === 'not-allowed'
                         ? "Microphone access was blocked. You can still type your answer."
-                        : "Voice input stopped (" + event.error + "). You can still type your answer.";
+                        : event.error === 'no-speech'
+                            ? "We did not hear anything. Please check your microphone and try again, or type your answer."
+                            : "Voice input stopped (" + event.error + "). You can still type your answer.";
+                    finish();
+                    status.textContent = message;
                 };
-                recognition.onend = function(){ if (listening) { setListening(false); } };
+                recognition.onend = finish;
+                listening = true;
+                status.textContent = "";
+                showRecording(true);
                 recognition.start();
-                setListening(true);
             }
 
             function stop(){
-                if (recognition) { recognition.stop(); }
-                setListening(false);
+                if (!listening) { return; }
+                listening = false;
+                finishing = true;
+                recordingText.textContent = "Finishing your transcript...";
+                mic.disabled = true;
+                recognition.stop();
+                finishTimer = setTimeout(finish, FINISH_TIMEOUT_MS);
             }
 
-            mic.onclick = function(){ if (listening) { stop(); } else { start(); } };
+            mic.onclick = function(){ if (listening) { stop(); } else if (!finishing) { start(); } };
 
             box.onkeydown = function(e){
                 if (e.key === 'Enter' && !e.shiftKey && !e.isComposing) {
                     e.preventDefault();
-                    if (!listening) { document.getElementById('chatForm').requestSubmit(); }
+                    if (!listening && !finishing) { document.getElementById('chatForm').requestSubmit(); }
                 }
             };
         }
