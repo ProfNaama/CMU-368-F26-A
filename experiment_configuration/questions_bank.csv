@@ -9,7 +9,6 @@ block_confidence,0,1,q_confidence_6,"If an interviewer challenges my answer, I c
 block_confidence,0,1,q_confidence_7,I can express myself fluently and at an appropriate pace during an interview.,0,0,1,0,0,Strongly disagree|Strongly agree
 block_confidence,0,1,q_confidence_8,I am confident I would perform well in a real job interview.,0,0,1,0,0,Strongly disagree|Strongly agree
 block_confidence_selfperf,0,0,q_confidence_selfperf,"Overall, how would you rate your performance on the interview questions you just answered?",0,0,0,1,0,Very poor|Poor|Fair|Good|Very good|Excellent
-block_purpose,0,0,q_purpose_1,"In a sentence or two, what do you think this study was about?",1,0,0,0,0,
 block_personality,1,1,q_personality_0,"Thinking about the feedback the AI interviewer gave you on your answers, on a scale of 1 to 7 (1 representing strongly disagree and 7 representing strongly agree), please rate how much you agree with the following statements:",0,0,0,0,1,
 block_personality,1,1,q_personality_1,The AI interviewer felt warm.,0,0,1,0,0,Strongly disagree|Strongly agree
 block_personality,1,1,q_personality_2,The AI interviewer felt supportive.,0,0,1,0,0,Strongly disagree|Strongly agree
@@ -32,7 +31,7 @@ block_ai,1,1,q_ai_1,"Overall, I have a positive view of artificial intelligence.
 block_ai,1,1,q_ai_2,I trust feedback provided by AI tools.,0,0,1,0,0,Strongly disagree|Strongly agree
 block_ai,1,1,q_ai_3,I find AI tools useful for preparing for tasks like interviews.,0,0,1,0,0,Strongly disagree|Strongly agree
 block_demographic,0,1,q_demographic_0,Please answer the following demographic questions,0,0,0,0,1,
-block_demographic,0,1,q_demographic_1,What is your gender?,0,0,0,1,0,Woman|Man|Non-binary|Prefer to self-describe|Prefer not to say
+block_demographic,0,1,q_demographic_1,What was your gender assigned at birth?,0,0,0,1,0,Woman|Man|Non-binary|Prefer to self-describe|Prefer not to say
 block_demographic,0,1,q_demographic_2,What is your age?,0,0,0,1,0,18-20|21-23|24-26|27-30|Over 30
 block_demographic,0,1,q_demographic_3,What best describes your current status?,0,0,0,1,0,First-year undergraduate|Second-year undergraduate|Third-year undergraduate|Fourth-year undergraduate or higher|Graduate student|Employed full-time|Other
 block_demographic,0,1,q_demographic_4,What is your primary field of study or work?,0,0,0,1,0,Business or management|Computer science or information systems|Engineering|Natural sciences or math|Social sciences or humanities|Arts or design|Other
