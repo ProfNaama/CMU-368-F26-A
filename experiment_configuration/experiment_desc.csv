@@ -13,8 +13,8 @@ consent,Interview Practice Study,Consent Information,"<p>
   Interview practice, including receiving feedback on your answers, can be mildly stressful for some people. If you feel uncomfortable at any point, you may stop the session by closing this window.
 </p>
 "
-pre_questionnaire,Interview Practice Study,A few quick questions before we begin,
+pre_questionnaire,Interview Practice Study,A few questions before we begin,
 post_questionnaire,Interview Practice Study,A few questions about your experience,
 session_ended,Interview Practice Study,Thank You for participating in the study.<br/>,
 error,Interview Practice Study,We are sorry - an error has occurred. Please close your browser and try again,
-welcome_code,Interview Practice Study,Welcome to the Interview Practice Study,Please enter your access code
+welcome_code,Interview Practice Study,Welcome to the study,Please enter your access code
