@@ -1,16 +1,28 @@
 page,title,header,body1
 chat,Interview Practice Study,Practice Interview,
 consent,Interview Practice Study,Consent Information,"<p>
-  You are invited to participate in a research study evaluating an AI-assisted behavioral interview tool. Your participation will involve answering interview questions with an AI coach and completing brief surveys about your experience. The entire session takes approximately 25&ndash;30 minutes.
+  We are inviting you to take part in a research study conducted by [[RESEARCHER NAMES]] at Carnegie Mellon University. You must be 18 or older to participate. Participation in this study is voluntary. You may stop at any time by closing this window.
 </p>
 <p>
-  Your participation is completely voluntary. You may stop or skip any question at any time without penalty. All responses collected are confidential and used solely for research purposes.
+  We are interested in how people experience practice job interviews with an AI interviewer. If you choose to take part, you will answer a short survey, complete a practice behavioral interview with an AI interviewer (five questions, with feedback after each answer), and then answer a longer survey about your experience. The study takes about 25&ndash;30 minutes. For scientific reasons, we cannot provide specific details about the research question being tested. At the end of the study, we will give you more information and the chance to reconsider your consent.
 </p>
 <p>
-  Your chat messages and survey answers will be recorded. We do not collect your name, so please do not include names or other identifying details in your answers.
+  Your chat messages and survey answers will be recorded. We will not ask for your name. Please do not include names or other identifying details in your answers. Your messages are sent to an AI service (OpenAI) so the AI interviewer can reply. If you use the Speak button, your web browser's speech service (for example, Google or Apple) turns your voice into text. We do not record or save your audio.
 </p>
 <p>
-  Interview practice, including receiving feedback on your answers, can be mildly stressful for some people. If you feel uncomfortable at any point, you may stop the session by closing this window.
+  Receiving feedback on your answers can be mildly stressful or frustrating for some people. There is also a small risk that your information could be seen by someone outside the project. We have steps in place to prevent this, but we cannot remove the risk completely.
+</p>
+<p>
+  When we report our findings, we will not use your name. Study data that have been stripped of anything that could identify you (de-identified) may be shared, made public, or used for future research or commercial purposes.
+</p>
+<p>
+  [[COMPENSATION: describe payment or credit, or write: You will not be paid for taking part.]]
+</p>
+<p>
+  Questions? Please contact [[CONTACT NAME AND EMAIL]]. If you have questions or concerns about your rights as a research participant, you can contact the Carnegie Mellon IRB at (412) 268-4721, IRB-review@andrew.cmu.edu.
+</p>
+<p>
+  If you want to take part in this study, answer the three questions below and click Submit.
 </p>
 "
 pre_questionnaire,Interview Practice Study,A few questions before we begin,
