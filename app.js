@@ -359,11 +359,9 @@ function verifySessionEnded(req, res, next) {
         }
         else {
             const redirectUrl = sessionManager.getRedirectUrl();
-            if (redirectUrl) {
-                renderParams["body_message"] = "Click the 'Next' button to proceed.";
-            } else {
-                renderParams["body_message"] = "You may now close this window.";
-            }   
+            const closingMessage = redirectUrl ? "Click the 'Next' button to proceed." : "You may now close this window.";
+            // keep the debrief text configured for this page and add the closing instruction below it
+            renderParams["body_message"] = (renderParams["body_message"] || "") + "<p>" + closingMessage + "</p>";
         }
         
         // Set completion and redirect info if available

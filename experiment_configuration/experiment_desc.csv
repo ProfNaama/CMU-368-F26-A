@@ -15,6 +15,21 @@ consent,Interview Practice Study,Consent Information,"<p>
 "
 pre_questionnaire,Interview Practice Study,A few questions before we begin,
 post_questionnaire,Interview Practice Study,A few questions about your experience,
-session_ended,Interview Practice Study,Thank You for participating in the study.<br/>,
+session_ended,Interview Practice Study,Thank You for participating in the study.<br/>,"<p>
+  <strong>Thank you for taking part.</strong> To get natural reactions, we did not tell you the full purpose of this study at the start. Our research is about how the tone of an AI interviewer's feedback affects people's confidence. Each person was randomly assigned to one of three interviewer styles: supportive, neutral, or passive-aggressive. The interview questions and the main points of the feedback were the same in all three styles. Only the tone changed.
+</p>
+<p>
+  We set the AI interviewer's tone ahead of time. It was not a judgment of you or of your answers. We are comparing how confident people feel before and after the practice interview in each group.
+</p>
+<p>
+  To help make sure other participants respond naturally, please do not share details of this study with others.
+</p>
+<p>
+  Taking part is still voluntary. Now that you know the full purpose, you may choose to have your data removed, without penalty. To do this, email [[CONTACT NAME AND EMAIL]] within [[NUMBER]] days and include your access code. After that, we will not be able to identify your data to remove it.
+</p>
+<p>
+  Questions? Please contact [[CONTACT NAME AND EMAIL]]. If you have questions or concerns about your rights as a research participant, you can contact the Carnegie Mellon IRB at (412) 268-4721, IRB-review@andrew.cmu.edu.
+</p>
+"
 error,Interview Practice Study,We are sorry - an error has occurred. Please close your browser and try again,
 welcome_code,Interview Practice Study,Welcome to the study,Please enter your access code
