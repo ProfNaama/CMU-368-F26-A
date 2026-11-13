@@ -20,6 +20,32 @@
     /* border: 1px solid gray; */
 }
 
+/* Inline emphasis inherits the global padding and margin above, which adds stray gaps around bold words. */
+strong,
+b,
+em,
+i {
+    padding: 0;
+    margin: 0;
+}
+
+/* One text size for all body content (survey items, headings inside the task page, buttons). Page titles (h2) stay larger. */
+p,
+li,
+label,
+td,
+span,
+div,
+h3,
+h4,
+h5,
+button,
+input,
+textarea,
+select {
+    font-size: 16px;
+}
+
 .container {
     display: grid;
     grid-template-areas: 
