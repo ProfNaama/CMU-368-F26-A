@@ -15,7 +15,7 @@ block content
             svg(class="recIcon" width="28" height="28" viewBox="0 0 24 24" aria-hidden="true")
                 path(fill="#d32f2f" d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5.3-3c0 3-2.54 5.1-5.3 5.1S6.7 14 6.7 11H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c3.28-.48 6-3.3 6-6.72h-1.7z")
             span(id="recordingText" style="font-weight: 600; color: #b71c1c") Recording... speak naturally, then click Stop when you are finished.
-        textarea(class="form-text-input" id="message" rows="6" style="width: 100%; box-sizing: border-box" placeholder="Type your message here, or click Speak to record it" required)
+        textarea(class="form-text-input" id="message" rows="6" style="width: 100%; box-sizing: border-box" placeholder="Click Speak and say your answer. Use the keyboard only to correct mistakes in the text." required)
         button(type="button" id="micButton" style="display:none" aria-pressed="false") Speak
         input(type="submit" id="sendButton" value="Send")
         div(id="voiceStatus" style="color: #555; min-height: 1.3em" aria-live="polite")
@@ -94,7 +94,7 @@ block content
 
             if (!SpeechRecognitionImpl) {
                 mic.style.display = 'none';
-                status.textContent = "Voice input is not available in this browser. Please type your answer.";
+                status.textContent = "Voice input is not available in this browser. Please open this page in Chrome, Edge, or Safari so you can answer by speaking.";
                 return;
             }
             mic.style.display = '';
@@ -144,7 +144,7 @@ block content
                     box.focus();
                 } else {
                     box.value = baseText;
-                    status.textContent = "We did not catch anything. Please try again or type your answer.";
+                    status.textContent = "We did not catch anything. Please click Speak and try again.";
                 }
             }
 
@@ -171,10 +171,10 @@ block content
                 };
                 recognition.onerror = function(event){
                     const message = event.error === 'not-allowed'
-                        ? "Microphone access was blocked. You can still type your answer."
+                        ? "Microphone access was blocked. Please allow microphone access in your browser settings and try again."
                         : event.error === 'no-speech'
-                            ? "We did not hear anything. Please check your microphone and try again, or type your answer."
-                            : "Voice input stopped (" + event.error + "). You can still type your answer.";
+                            ? "We did not hear anything. Please check your microphone and try again."
+                            : "Voice input stopped (" + event.error + "). Please click Speak and try again.";
                     finish();
                     status.textContent = message;
                 };
