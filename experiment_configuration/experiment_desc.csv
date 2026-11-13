@@ -1,28 +1,51 @@
 page,title,header,body1
 chat,Interview Practice Study,Practice Interview,
 consent,Interview Practice Study,Consent Information,"<p>
-  We are inviting you to take part in a research study conducted by [[RESEARCHER NAMES]] at Carnegie Mellon University. You must be 18 or older to participate. Participation in this study is voluntary. You may stop at any time by closing this window.
+  This task is part of a research study conducted by Dr. Naama Ilany-Tzur at Carnegie Mellon University.
 </p>
 <p>
-  We are interested in how people experience practice job interviews with an AI interviewer. If you choose to take part, you will answer a short survey, complete a practice behavioral interview with an AI interviewer (five questions, with feedback after each answer), and then answer a longer survey about your experience. The study takes about 25&ndash;30 minutes. For scientific reasons, we cannot provide specific details about the research question being tested. At the end of the study, we will give you more information and the chance to reconsider your consent.
+  <strong>Purpose</strong><br/>
+  The purpose of the research is to investigate how people interact with an AI agent during a practice job interview.
 </p>
 <p>
-  Your chat messages and survey answers will be recorded. We will not ask for your name. Please do not include names or other identifying details in your answers. Your messages are sent to an AI service (OpenAI) so the AI interviewer can reply. If you use the Speak button, your web browser's speech service (for example, Google or Apple) turns your voice into text. We do not record or save your audio.
+  <strong>Procedure</strong><br/>
+  First, you will answer a few short questions. You will then complete a practice behavioral interview in which an AI interviewer asks you five questions and gives you feedback after each answer. Finally, you will answer a few questions about your experience. The expected duration of participation is about 25 to 30 minutes.
 </p>
 <p>
-  Receiving feedback on your answers can be mildly stressful or frustrating for some people. There is also a small risk that your information could be seen by someone outside the project. We have steps in place to prevent this, but we cannot remove the risk completely.
+  <strong>Participant Requirements</strong><br/>
+  Participation in this study is limited to individuals age 18 and older.
 </p>
 <p>
-  When we report our findings, we will not use your name. Study data that have been stripped of anything that could identify you (de-identified) may be shared, made public, or used for future research or commercial purposes.
+  <strong>Risk</strong><br/>
+  The risks and discomfort associated with participation in this study are no greater than those ordinarily encountered in daily life or during other online activities. Receiving feedback on your answers may be mildly stressful or frustrating for some people. Specifically, there is the risk of disclosing personal information while interacting with the AI agent. Please do not disclose any personal information or identifiable information throughout this study. In case you do we will delete this information as soon as possible. If you feel any discomfort, you should end your participation immediately.
 </p>
 <p>
-  [[COMPENSATION: describe payment or credit, or write: You will not be paid for taking part.]]
+  <strong>Benefits</strong><br/>
+  There may be no personal benefit from your participation in the study but the knowledge received may be of value the general understanding of how users are interacting with AI agents and what affects this interaction.
 </p>
 <p>
-  Questions? Please contact [[CONTACT NAME AND EMAIL]]. If you have questions or concerns about your rights as a research participant, you can contact the Carnegie Mellon IRB at (412) 268-4721, IRB-review@andrew.cmu.edu.
+  <strong>Compensation &amp; Costs</strong><br/>
+  Upon completing your participation, you will be eligible for compensation as specified in Prolific (the online platform you were recruited through). The final page of this study shows a completion code. Copy that code and paste it into Prolific to receive your payment. There will be no cost to you if you participate in this study.
 </p>
 <p>
-  If you want to take part in this study, answer the three questions below and click Submit.
+  <strong>Future Use of Information</strong><br/>
+  In the future once we have removed all identifiable information from your data, we may use it for our research studies, or we may distribute the data to other researchers for their research studies. We would do this without getting additional informed consent from you. Sharing of data with other researchers will only be done in such a manner that you will not be identified.
+</p>
+<p>
+  <strong>Confidentiality</strong><br/>
+  The data captured for the research does not include any personally identifiable information about you. Your IP address will not be captured. The study will collect your research data through your use of a Salesforce web server. This company is not owned by CMU. The company will have access to the research data that you produce and any identifiable information that you share with them while using their product. Your messages to the AI agent are also sent to an AI service provider (OpenAI) so that the agent can reply. If you use the Speak button, your web browser's speech-recognition service (for example, Google or Apple) converts your voice into text; we do not record or save your audio. Please note that CMU does not control the Terms and Conditions of these companies or how they will use or protect any information that they collect.
+</p>
+<p>
+  <strong>Right to Ask Questions &amp; Contact Information</strong><br/>
+  If you have any questions about this study, you should feel free to ask them by contacting the Principal Investigator now at nilanytz@andrew.cmu.edu. If you have questions later, desire additional information, or wish to withdraw your participation, please contact the Principal Investigator by e-mail in accordance with the contact information listed above.<br/><br/>
+  If you have questions pertaining to your rights as a research participant, or you wish to report concerns, you should contact the Office of Research Integrity and Compliance at Carnegie Mellon University. Email: irb-review@andrew.cmu.edu. Phone: 412-268-4721. Use this phone number only if you have a question about your rights as a research participant or want to report a concern about this study. For questions about the tasks or your payment, please email the Principal Investigator instead.
+</p>
+<p>
+  <strong>Voluntary Participation</strong><br/>
+  Your participation in this research is voluntary. You may discontinue participation at any time during the research activity. You may print a copy of this consent form for your records.
+</p>
+<p>
+  Please indicate your agreement or disagreement with the following by selecting ""Yes"" or ""No"":
 </p>
 "
 pre_questionnaire,Interview Practice Study,A few questions before we begin,
